@@ -1,0 +1,39 @@
+<html>
+<h1>AREA CHART REAL-TIME EXAMPLE</h1>
+   <head>
+       <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+      </script>
+      
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['corechart']});     
+      </script>
+   </head>
+   
+   <body>
+      <div id = "container" style = "width: 550px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            
+            var data = google.visualization.arrayToDataTable([
+               ['Year', 'Sales', 'Expenses'],
+               ['2013',  1000,      400],
+               ['2014',  1170,      460],
+               ['2015',  660,       1120],
+               ['2016',  1030,      540]
+            ]);
+
+            var options = {title: 'Company Performance',
+               hAxis: {title: 'Year', titleTextStyle: {color: '#333'}},
+               vAxis: {minValue: 0}
+            };  
+
+            
+            var chart = new google.visualization.AreaChart(document.getElementById ('container'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+   </body>
+</html>
+

@@ -1,0 +1,39 @@
+<html>
+   <head>
+      <h1>GANTT CHART REAL-TIME EXAMPLE</h1>
+      <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+      </script>
+      <script type = "text/javascript" src = "https://www.google.com/jsapi">
+      </script>
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['timeline']});     
+      </script>
+   </head>
+   
+   <body>
+      <div id = "container" style = "width: 550px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            
+            var data = new google.visualization.DataTable();
+            data.addColumn({ type: 'string', id: 'President' });
+            data.addColumn({ type: 'date', id: 'Start' });
+            data.addColumn({ type: 'date', id: 'End' });
+            data.addRows([
+            [ 'Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
+            [ 'Adams',      new Date(1797, 2, 4),  new Date(1801, 2, 4) ],
+            [ 'Jefferson',  new Date(1801, 2, 4),  new Date(1809, 2, 4) ]]);
+
+            var options = {      
+               width: '100%', 
+               height: '100%'
+            };
+                  
+            var chart = new google.visualization.Timeline(document.getElementById('container'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+   </body>
+</html>
